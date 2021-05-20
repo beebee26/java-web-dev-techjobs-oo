@@ -1,5 +1,6 @@
 package org.launchcode.techjobs_oo;
 
+import javax.swing.text.Position;
 import java.util.Objects;
 
 public class Job {
@@ -12,6 +13,7 @@ public class Job {
     private Location location;
     private PositionType positionType;
     private CoreCompetency coreCompetency;
+    private Job aJob;
 
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
@@ -32,11 +34,37 @@ public class Job {
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
-    @Override
-    public String toString(Job aJob) {
-        return "\nId: " + aJob.getId() + "\nName: " + aJob.getName() + "\nEmployer: " + aJob.getEmployer() + "\nLocation: " + aJob.getLocation() + "\nPosition Type: " + aJob.getPositionType() + "\nName: " + aJob.getCoreCompetency();
-    }
+    //@Override
+    //public String toString() {
+        //this.aJob = aJob;
+       // return "\nId: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + "\n";
+    //}
 
+    @Override
+    public String toString() {
+        //String Name = "Data not available";
+        //Employer thisEmployer = "Data not available";
+        //Location thisLocation = "Data not available";
+        //PositionType thisPositionType = "Data not available";
+        //CoreCompetency thisCoreCompetency = "Data not available";
+
+        if (this.name == "" || this.name == null) {
+            this.name = "Data not available";
+        }
+        if (this.employer.getValue() == "" || this.employer.getValue() == null) {
+            this.employer.setValue("Data not available");
+        }
+        if (this.location.getValue() == "" || this.location.getValue() == null) {
+            this.location.setValue("Data not available");
+        }
+        if (this.positionType.getValue() == "" || this.positionType.getValue() == null) {
+            this.positionType.setValue("Data not available");
+        }
+        if (this.coreCompetency.getValue() == "" || this.coreCompetency.getValue() == null) {
+            this.coreCompetency.setValue("Data not available");
+        }
+            return "\nId: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + "\n";
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

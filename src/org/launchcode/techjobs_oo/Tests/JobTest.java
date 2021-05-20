@@ -1,6 +1,5 @@
 package org.launchcode.techjobs_oo.Tests;
 
-
 import static org.junit.Assert.*;
 import org.junit.Test;
 import org.junit.Before;
@@ -8,14 +7,19 @@ import org.junit.Test;
 import org.launchcode.techjobs_oo.*;
 
 public class JobTest {
-    @Before
-    Job testJob1 = new Job();
-    Job testJob2 = new Job();
+    public Job testJob1 = new Job();
+    public Job testJob2 = new Job();
+
+    //@Before
+    //public void setNewJobs() {
+    //    Job testJob1 = new Job();
+     //   Job testJob2 = new Job();
+    //}
 
     @Test
     public void testSettingJobId() {
 
-        assertEquals(testJob1+1,testJob2);
+        assertEquals(testJob1.getId()+1,testJob2.getId());
     }
 
     @Test
@@ -44,14 +48,21 @@ public class JobTest {
     }
 
     @Test
+    public void blankLineBeforeAndAfter(){
+        Job stringJob1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertEquals("\n1Product testerACMEDesertQuality controlPersistence\n", stringJob1.toString());
+    }
+
+
+    @Test
     public void testToString() {
         Job stringJob1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertEquals("\nID: 1\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence", stringJob1.toString());
+        assertEquals("\nId: " + stringJob1.getId() + "\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n", stringJob1.toString());
     }
 
     @Test
     public void emptyString() {
         Job stringJob2 = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
-        assertEquals("\nID: 1\nName: Data not available\nEmployer: Data not available\nLocation: Data not available\nPosition Type: Data not available\nCore Competency: Data not available", stringJob2.toString());
+        assertEquals("\nId: " + stringJob2.getId() + "\nName: Data not available\nEmployer: Data not available\nLocation: Data not available\nPosition Type: Data not available\nCore Competency: Data not available\n", stringJob2.toString());
     }
 }
