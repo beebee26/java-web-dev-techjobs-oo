@@ -12,7 +12,6 @@ public class JobTest {
     Job testJob1 = new Job();
     Job testJob2 = new Job();
 
-
     @Test
     public void testSettingJobId() {
 
@@ -29,5 +28,13 @@ public class JobTest {
         assertEquals(newJob instanceof Location,"Desert");
         assertEquals(newJob instanceof PositionType,"Quality control");
         assertEquals(newJob instanceof CoreCompetency,"Persistence");
+    }
+
+    @Test
+    public void testJobsForEquality() {
+        Job newJob1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job newJob2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        assertFalse(testJob1.equals(testJob2));
     }
 }
