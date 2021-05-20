@@ -1,6 +1,5 @@
 package org.launchcode.techjobs_oo;
 
-import javax.swing.text.Position;
 import java.util.Objects;
 
 public class Job {
@@ -30,24 +29,32 @@ public class Job {
 
     @Override
     public String toString() {
+        String noData = "Data not available";
 
-        if (this.name == "" || this.name == null) {
-            this.name = "Data not available";
+        String nameValue = this.getName();
+        String employerValue = this.employer.getValue();
+        String locationValue = this.location.getValue();
+        String positionTypeValue = this.positionType.getValue();
+        String coreCompetencyValue = this.coreCompetency.getValue();
+
+        if (nameValue.equals("")) {
+            nameValue = noData;
         }
-        if (this.employer.getValue() == "" || this.employer.getValue() == null) {
-            this.employer.setValue("Data not available");
+        if (employerValue.equals("")) {
+            employerValue = noData;
         }
-        if (this.location.getValue() == "" || this.location.getValue() == null) {
-            this.location.setValue("Data not available");
+        if (locationValue.equals("")) {
+            locationValue = noData;
         }
-        if (this.positionType.getValue() == "" || this.positionType.getValue() == null) {
-            this.positionType.setValue("Data not available");
+        if (positionTypeValue.equals("")) {
+            positionTypeValue = noData;
         }
-        if (this.coreCompetency.getValue() == "" || this.coreCompetency.getValue() == null) {
-            this.coreCompetency.setValue("Data not available");
+        if (coreCompetencyValue.equals("")) {
+            coreCompetencyValue = noData;
         }
-            return "\nId: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + "\n";
+            return "\nId: " + this.getId() + "\nName: " + nameValue + "\nEmployer: " + employerValue + "\nLocation: " + locationValue + "\nPosition Type: " + positionTypeValue + "\nCore Competency: " + coreCompetencyValue + "\n";
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
