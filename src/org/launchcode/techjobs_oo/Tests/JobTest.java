@@ -24,10 +24,15 @@ public class JobTest {
         Job newJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
         assertEquals(newJob.getName(),"Product tester");
-        assertEquals(newJob instanceof Employer,"ACME");
-        assertEquals(newJob instanceof Location,"Desert");
-        assertEquals(newJob instanceof PositionType,"Quality control");
-        assertEquals(newJob instanceof CoreCompetency,"Persistence");
+        assertTrue(newJob.getEmployer() instanceof Employer);
+        assertTrue(newJob.getLocation() instanceof Location);
+        assertTrue(newJob.getPositionType() instanceof PositionType);
+        assertTrue(newJob.getCoreCompetency() instanceof  CoreCompetency);
+        assertEquals("Product tester", newJob.getName());
+        assertEquals("ACME", newJob.getEmployer().toString());
+        assertEquals("Desert", newJob.getLocation().toString());
+        assertEquals("Quality control", newJob.getPositionType().toString());
+        assertEquals("Persistence", newJob.getCoreCompetency().toString());
     }
 
     @Test
@@ -41,6 +46,12 @@ public class JobTest {
     @Test
     public void testToString() {
         Job stringJob1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertEquals("\nID: 1\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence","\nID: " + stringJob1.getId() + "\nName: " + stringJob1.getName() + "\nEmployer: " + stringJob1.getEmployer() + "\nLocation: " + stringJob1.getLocation() + "\nPosition Type: " + stringJob1.getPositionType() + "\nCore Competency: " + stringJob1.getCoreCompetency());
+        assertEquals("\nID: 1\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence", stringJob1.toString());
+    }
+
+    @Test
+    public void emptyString() {
+        Job stringJob2 = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+        assertEquals("\nID: 1\nName: Data not available\nEmployer: Data not available\nLocation: Data not available\nPosition Type: Data not available\nCore Competency: Data not available", stringJob2.toString());
     }
 }
