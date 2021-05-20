@@ -16,8 +16,18 @@ public class JobTest {
     @Test
     public void testSettingJobId() {
 
-        assertEquals(testJob1+1,testJob2,.0);
+        assertEquals(testJob1+1,testJob2);
     }
 
+    @Test
+    public void testJobConstructorSetsAllFields() {
 
+        Job newJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        assertEquals(newJob.getName(),"Product tester");
+        assertEquals(newJob instanceof Employer,"ACME");
+        assertEquals(newJob instanceof Location,"Desert");
+        assertEquals(newJob instanceof PositionType,"Quality control");
+        assertEquals(newJob instanceof CoreCompetency,"Persistence");
+    }
 }
