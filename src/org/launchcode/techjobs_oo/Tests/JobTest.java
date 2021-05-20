@@ -10,12 +10,6 @@ public class JobTest {
     public Job testJob1 = new Job();
     public Job testJob2 = new Job();
 
-    //@Before
-    //public void setNewJobs() {
-    //    Job testJob1 = new Job();
-     //   Job testJob2 = new Job();
-    //}
-
     @Test
     public void testSettingJobId() {
 

@@ -1,48 +1,17 @@
 package org.launchcode.techjobs_oo;
+
 import java.util.Objects;
 
-public class Location {
-    private int id;
-    private static int nextId = 1;
-    private String value;
-
-    public Location() {
-        id = nextId;
-        nextId++;
-    }
+public class Location extends JobField {
 
     public Location(String value) {
-        this();
-        this.value = value;
+        super(value);
     }
 
+    // TODO: Add a custom toString() method that returns the data stored in 'value'.
     @Override
     public String toString() {
-        return value;
+        return super.getValue();
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Location)) return false;
-        Location location = (Location) o;
-        return getId() == location.getId();
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId());
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
 }
