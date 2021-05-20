@@ -91,7 +91,4 @@ public class Job {
     public String getName() {
         return name;
     }
-
-
-
 }

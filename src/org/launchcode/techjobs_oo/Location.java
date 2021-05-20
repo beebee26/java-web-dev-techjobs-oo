@@ -1,5 +1,4 @@
 package org.launchcode.techjobs_oo;
-
 import java.util.Objects;
 
 public class Location {
@@ -38,8 +37,6 @@ public class Location {
     public int hashCode() {
         return Objects.hash(getId());
     }
-
-    // Getters and Setters:
 
     public int getId() {
         return id;
